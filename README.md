@@ -28,7 +28,8 @@ Plataforma web para mapeamento e monitorização de ATMs em Luanda, Angola. Perm
 - [Leaflet](https://leafletjs.com/) — mapa interactivo
 - [Leaflet Routing Machine](https://www.lleaflet.com/) — roteamento OSRM
 - [OpenStreetMap](https://www.openstreetmap.org/) — dados cartográficos
-- HTML + CSS + JavaScript (single file, sem dependências de build)
+- HTML + CSS + JavaScript (organizado em `index.html`, `css/style.css`, `js/app.js`)
+
 
 ## Dados
 
