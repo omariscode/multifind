@@ -676,14 +676,13 @@ header {
 
   .atm-list { max-height: calc(85vh - 220px); padding: 2px 14px 14px; }
 
-  .map-container { position: absolute; inset: 52px 0 0; }
-  .map-container.with-sheet { bottom: 140px; }
+  .map-container { position: absolute; inset: 52px 0 140px; z-index: 1; }
 
   .sidebar-overlay {
     display: none;
     position: fixed; inset: 0;
     background: rgba(0,0,0,0.4);
-    z-index: 99;
+    z-index: 150;
   }
   .sidebar-overlay.open { display: block; }
 
@@ -734,8 +733,7 @@ header {
   header { height: 48px; }
   .sidebar { transform: translateY(calc(100% - 120px)); max-height: 92vh; }
   .sidebar.open { transform: translateY(0); }
-  .map-container { inset: 48px 0 0; }
-  .map-container.with-sheet { bottom: 120px; }
+  .map-container { inset: 48px 0 120px; }
   .legend { bottom: 130px; }
   .detail-panel { padding: 10px 12px 14px; }
 }

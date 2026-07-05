@@ -101,37 +101,16 @@ document.addEventListener('keydown', e => {
   }
 });
 
-function toggleSidebar() {
-  const s = document.querySelector('.sidebar');
-  const o = document.querySelector('.sidebar-overlay');
-  const open = s.classList.toggle('open');
-  if (o) o.classList.toggle('open', open);
-  updateMapSheet();
-}
-
-function updateMapSheet() {
-  const mc = document.querySelector('.map-container');
-  const s = document.querySelector('.sidebar');
-  if (!mc || !s) return;
-  if (window.innerWidth <= 768 && s.classList.contains('open')) {
-    mc.classList.add('with-sheet');
-  } else {
-    mc.classList.remove('with-sheet');
-  }
-}
-
 function openSidebar() {
   document.querySelector('.sidebar').classList.add('open');
   const o = document.querySelector('.sidebar-overlay');
   if (o) o.classList.add('open');
-  updateMapSheet();
 }
 
 function closeSidebar() {
   document.querySelector('.sidebar').classList.remove('open');
   const o = document.querySelector('.sidebar-overlay');
   if (o) o.classList.remove('open');
-  updateMapSheet();
 }
 
 document.addEventListener('click', e => {
@@ -517,11 +496,7 @@ document.getElementById('searchInput').addEventListener('input', debounce(render
 window.addEventListener('resize', () => {
   if (window.innerWidth > 768) {
     document.querySelector('.sidebar').classList.remove('open');
-    updateMapSheet();
   }
 });
 
 initMap();
-if (window.innerWidth <= 768) {
-  document.querySelector('.map-container').classList.add('with-sheet');
-}
