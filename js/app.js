@@ -6,6 +6,22 @@ const STATUSES = {
   'quebrado': { label: 'Avariado', color: '#64748b' },
 };
 
+const I = {
+  pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  dollar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',
+  file: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>',
+  x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+  check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>',
+  wrench: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>',
+  clock: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  refresh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.5 9a9 9 0 0 1 14.2-3.7L23 10M1 14l5.3 4.7A9 9 0 0 0 20.5 15"/></svg>',
+  map: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>',
+  signal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>',
+  crosshair: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>',
+  alert: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+  target: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>',
+};
+
 const ATM_DATA = [
   { id:1, bank:'BFA', name:'BFA Mutamba', address:'Largo da Mutamba, Ingombota', lat:-8.8190, lng:13.2340, status:'dinheiro', updated:'há 12 min', horario:'24h' },
   { id:2, bank:'BFA', name:'BFA Miramar', address:'Av. 4 de Fevereiro, Miramar', lat:-8.8100, lng:13.2300, status:'dinheiro-papel', updated:'há 5 min', horario:'24h' },
@@ -205,7 +221,7 @@ function renderList() {
       </div>
       <div class="atm-meta">
         <span class="status-indicator"><span class="dot" style="background:${s.color}"></span><span class="label">${s.label}</span></span>
-        ${dist ? `<span class="dist-tag">📍 ${dist}</span>` : ''}
+        ${dist ? `<span class="dist-tag">${I.pin} ${dist}</span>` : ''}
       </div>
     </div>`;
   }).join('');
@@ -260,18 +276,18 @@ function openDetail(atm) {
           ${atm.address}
         </div>
       </div>
-      <button class="panel-close" onclick="closeDetail()">✕</button>
+      <button class="panel-close" onclick="closeDetail()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
 
     <div class="panel-info">
-      <div class="panel-info-item"><span class="ico">${hasMoney ? '💵' : '❌'}</span> ${hasMoney ? 'Com dinheiro' : 'Sem dinheiro'}</div>
-      <div class="panel-info-item"><span class="ico">${hasPaper ? '🧾' : '❌'}</span> ${hasPaper ? 'Papel disp.' : 'Sem papel'}</div>
-      <div class="panel-info-item"><span class="ico">${!isBroken ? '✅' : '🔧'}</span> ${!isBroken ? 'Operacional' : 'Avariado'}</div>
+      <div class="panel-info-item"><span class="ico">${hasMoney ? I.dollar : I.x}</span> ${hasMoney ? 'Com dinheiro' : 'Sem dinheiro'}</div>
+      <div class="panel-info-item"><span class="ico">${hasPaper ? I.file : I.x}</span> ${hasPaper ? 'Papel disp.' : 'Sem papel'}</div>
+      <div class="panel-info-item"><span class="ico">${!isBroken ? I.check : I.wrench}</span> ${!isBroken ? 'Operacional' : 'Avariado'}</div>
     </div>
 
     <div class="panel-grid">
-      <div class="grid-cell"><div class="grid-label">Horário</div><div class="grid-value">🕐 ${atm.horario}</div></div>
-      <div class="grid-cell"><div class="grid-label">Actualização</div><div class="grid-value">⏱ ${atm.updated}</div></div>
+      <div class="grid-cell"><div class="grid-label">Horário</div><div class="grid-value panel-value">${I.clock} ${atm.horario}</div></div>
+      <div class="grid-cell"><div class="grid-label">Actualização</div><div class="grid-value panel-value">${I.refresh} ${atm.updated}</div></div>
       <div class="grid-cell"><div class="grid-label">Estado</div><div class="grid-value" style="color:${s.color}">${s.label}</div></div>
       <div class="grid-cell"><div class="grid-label">Rede</div><div class="grid-value">Multicaixa</div></div>
     </div>
@@ -306,17 +322,17 @@ function updateStats() {
 function getLocation() {
   const btn = document.getElementById('locateBtn');
   btn.classList.add('locating');
-  showToast('📡', 'A obter localização...');
-  if (!navigator.geolocation) { showToast('❌', 'Geolocalização não suportada'); btn.classList.remove('locating'); return; }
+  showToast(I.crosshair, 'A obter localização...');
+  if (!navigator.geolocation) { showToast(I.x, 'Geolocalização não suportada'); btn.classList.remove('locating'); return; }
   navigator.geolocation.getCurrentPosition(
     pos => {
       userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
       if (userMarker) map.removeLayer(userMarker);
       const icon = L.divIcon({ html: '<div class="my-location-marker"></div>', className: '', iconSize: [18,18], iconAnchor: [9,9] });
-      userMarker = L.marker([userLocation.lat, userLocation.lng], { icon }).addTo(map).bindPopup('<b>📍 A sua localização</b>').openPopup();
+      userMarker = L.marker([userLocation.lat, userLocation.lng], { icon }).addTo(map).bindPopup(`<b>${I.pin} A sua localização</b>`).openPopup();
       map.flyTo([userLocation.lat, userLocation.lng], 14, { duration: 1.2 });
       btn.classList.remove('locating');
-      showToast('✅', 'Localização obtida');
+      showToast(I.check, 'Localização obtida');
       currentSort = 'dist';
       document.getElementById('sortLabel').textContent = 'Próximo';
       renderList();
@@ -324,7 +340,7 @@ function getLocation() {
     err => {
       btn.classList.remove('locating');
       userLocation = { lat: -8.836, lng: 13.234 };
-      showToast('📍', 'A usar localização simulada: Luanda Centro');
+      showToast(I.pin, 'A usar localização simulada: Luanda Centro');
       currentSort = 'dist';
       document.getElementById('sortLabel').textContent = 'Próximo';
       renderList();
@@ -332,9 +348,9 @@ function getLocation() {
   );
 }
 
-function showToast(icon, text) {
+function showToast(iconSvg, text) {
   const t = document.getElementById('toast');
-  document.getElementById('toastIcon').textContent = icon;
+  document.getElementById('toastIcon').innerHTML = iconSvg;
   document.getElementById('toastText').textContent = text;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 3000);
@@ -370,7 +386,7 @@ function getDirections(lat, lng, atmName) {
     return;
   }
   getLocation();
-  showToast('📡', 'A obter localização para criar rota...');
+  showToast(I.crosshair, 'A obter localização para criar rota...');
   const check = setInterval(() => {
     if (userLocation) {
       clearInterval(check);
@@ -423,7 +439,7 @@ function buildRoute(origin, destLat, destLng, atmName) {
 
   routeControl.on('routingerror', e => {
     console.warn('OSRM routing failed, using fallback:', e);
-    showToast('⚠️', 'Rota detalhada indisponível, a usar distância directa');
+    showToast(I.alert, 'Rota detalhada indisponível, a usar distância directa');
     fallbackRoute(origin, destLat, destLng, atmName);
   });
 
@@ -458,7 +474,7 @@ function fallbackRoute(origin, destLat, destLng, atmName) {
 
   L.marker([destLat, destLng], {
     icon: L.divIcon({
-      html: '<div style="background:#3b82f6;color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.4)">📍</div>',
+      html: '<div style="background:#3b82f6;color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.4)">' + I.pin + '</div>',
       className: '', iconSize: [24,24], iconAnchor: [12,12]
     })
   }).addTo(map);
@@ -493,7 +509,7 @@ function submitReport() {
   updateStats();
   renderList();
   if (selectedAtm?.id === atm.id) openDetail(atm);
-  showToast('✅', 'Relatório enviado! Obrigado.');
+  showToast(I.check, 'Relatório enviado! Obrigado.');
 }
 
 document.getElementById('searchInput').addEventListener('input', debounce(renderList, 300));
